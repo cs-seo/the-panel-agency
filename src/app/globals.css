@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #0B0B0F;
+  --color-obsidian-2: #0F0F15;
+  --color-charcoal: #14141A;
+  --color-charcoal-2: #1C1C24;
+  --color-line: #23232E;
+  --color-ink: #F5F5F7;
+  --color-ink-muted: #9A9AA8;
+  --color-ink-dim: #5C5C68;
+  --color-electric: #0052FF;
+  --color-electric-glow: #2B6BFF;
+  --color-gold: #C9A86A;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+
+  --radius-card: 18px;
+
+  --shadow-glow: 0 0 0 1px rgba(255,255,255,0.04), 0 30px 80px -20px rgba(0, 82, 255, 0.25);
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--color-obsidian);
+    color: var(--color-ink);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--color-electric);
+    color: white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.06);
+    backdrop-filter: blur(12px);
+  }
+  .glass-strong {
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px);
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .radial-fade {
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
+            mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000 40%, transparent 100%);
+  }
+  .text-balance { text-wrap: balance; }
+  .tracking-tightest { letter-spacing: -0.04em; }
+}
+
+/* Animated gradient ring used on premium CTAs */
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+.cta-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 6s linear infinite;
+}
