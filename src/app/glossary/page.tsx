@@ -10,7 +10,6 @@ import {
   AiOverviewMock,
   SiteLinksMock,
 } from "@/components/SerpMocks";
-import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import { ArrowUpRight } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -125,20 +124,7 @@ export default function GlossaryIndex() {
         </section>
 
         <FAQ id="faq" eyebrow="FAQ" title="Glossary questions." intro="Three things every reader asks before settling in for the long read." items={faqs} />
-
-        <section className="relative py-12 sm:py-16 border-t border-line/60">
-          <div className="mx-auto max-w-4xl px-6">
-            <LeadCaptureForm
-              name="newsletter"
-              eyebrow="— Stay current"
-              title="The Friday SERP-feature briefing."
-              blurb="When Google ships a new SERP feature we tear it down the same week — what it is, how it renders, who it wins for. One email, Fridays."
-              buttonLabel="Subscribe"
-              successMessage="You are in. Friday briefing on the way."
-            />
-          </div>
-        </section>
-      </main>
+</main>
       <Footer />
     </>
   );

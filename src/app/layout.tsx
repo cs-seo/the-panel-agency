@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { NetlifyFormDeclarations } from "@/components/NetlifyFormDeclarations";
 import "./globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thepanelagency.com";
@@ -96,7 +95,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         {/* Hidden static form declarations so Netlify's build-time scraper
             discovers our forms. Without this, submissions 404. */}
-        <NetlifyFormDeclarations />
         {children}
       </body>
     </html>

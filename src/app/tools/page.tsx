@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { FAQ, type FAQItem } from "@/components/FAQ";
-import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import {
   Search,
   Code2,
@@ -186,20 +185,7 @@ export default function ToolsIndex() {
           intro="The three things people ask before they hit the button."
           items={faqs}
         />
-
-        <section className="relative py-12 sm:py-16 border-t border-line/60">
-          <div className="mx-auto max-w-4xl px-6">
-            <LeadCaptureForm
-              name="lead-magnet"
-              eyebrow="— Free download"
-              title="The Knowledge Panel checklist (PDF)"
-              blurb="The exact 30-signal pre-flight checklist we run on every new client engagement. Drop your email and we send it instantly."
-              buttonLabel="Send me the checklist"
-              successMessage="Sent. Check your inbox in the next minute (and your spam if not)."
-            />
-          </div>
-        </section>
-      </main>
+</main>
       <Footer />
     </>
   );
