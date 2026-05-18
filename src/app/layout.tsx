@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import { NetlifyFormDeclarations } from "@/components/LeadCaptureForm";
+import { NetlifyFormDeclarations } from "@/components/NetlifyFormDeclarations";
 import "./globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thepanelagency.com";

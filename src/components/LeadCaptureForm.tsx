@@ -4,24 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Check, Loader2 } from "lucide-react";
 
-/**
- * Netlify-Forms-ready lead capture form.
- *
- * To make Netlify detect forms during build, a matching hidden detection
- * form (with the same `name` and same field names) must exist in the
- * rendered HTML. We declare these in <NetlifyFormDeclarations /> inside
- * the root layout. Without that declaration, submissions would 404.
- *
- * Submission flow:
- *   1. preventDefault on submit
- *   2. POST urlencoded body to "/" with form-name field
- *   3. Show inline success or error UI
- *
- * Three variants are exposed via the `variant` prop:
- *   - "newsletter"      : email only
- *   - "lead-magnet"     : email + first name
- *   - "consult-request" : email + role + brief
- */
 export type LeadFormName = "newsletter" | "lead-magnet" | "consult-request";
 
 const VARIANT_FIELDS: Record<LeadFormName, string[]> = {
@@ -131,7 +113,7 @@ export function LeadCaptureForm({
             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-emerald-500/15 border border-emerald-500/30">
               <Check size={14} />
             </span>
-            <span>{successMessage ?? "You're in — check your inbox for the first message."}</span>
+            <span>{successMessage ?? "You're in. Check your inbox for the first message."}</span>
           </motion.div>
         ) : (
           <motion.form
@@ -144,9 +126,8 @@ export function LeadCaptureForm({
             data-netlify="true"
             data-netlify-honeypot="bot-field"
             onSubmit={onSubmit}
-            className={compact ? "flex gap-2 flex-col sm:flex-row" : "space-y-3"}
+            className={compact ? "flex gap-2 flex-col sm:flex-row relative" : "space-y-3 relative"}
           >
-            {/* Required hidden fields for Netlify */}
             <input type="hidden" name="form-name" value={name} />
             <input
               type="text"
@@ -203,7 +184,7 @@ export function LeadCaptureForm({
                 name="brief"
                 value={fields.brief ?? ""}
                 onChange={(e) => set("brief", e.target.value)}
-                placeholder="In one sentence — what's the current state of your Google SERP?"
+                placeholder="In one sentence, what's the current state of your Google SERP?"
                 rows={3}
                 className={fieldCls(false)}
               />
@@ -219,7 +200,7 @@ export function LeadCaptureForm({
             >
               {submitting ? <Loader2 size={14} className="animate-spin" /> : null}
               {submitting ? "Sending" : buttonLabel ?? "Subscribe"}
-              <span aria-hidden>→</span>
+              <span aria-hidden>{"→"}</span>
             </button>
 
             {error ? (
@@ -242,36 +223,5 @@ function fieldCls(compact: boolean) {
   return (
     "glass rounded-xl px-4 outline-none text-[14px] placeholder:text-ink-dim focus:border-electric-glow/60 " +
     (compact ? "py-3" : "w-full py-3")
-  );
-}
-
-/**
- * Static detection forms rendered (hidden) into the page HTML so Netlify's
- * build-time scraper sees them. Without this, the visible form submits
- * would 404. Each declared form must list ALL the field names used by any
- * variant of the visible form.
- *
- * Render this inside <body> in app/layout.tsx.
- */
-export function NetlifyFormDeclarations() {
-  return (
-    <div hidden aria-hidden="true">
-      <form name="newsletter" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="text" name="bot-field" />
-        <input type="email" name="email" />
-      </form>
-      <form name="lead-magnet" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="text" name="bot-field" />
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-      </form>
-      <form name="consult-request" data-netlify="true" data-netlify-honeypot="bot-field">
-        <input type="text" name="bot-field" />
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="text" name="role" />
-        <textarea name="brief" />
-      </form>
-    </div>
   );
 }
