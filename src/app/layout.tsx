@@ -59,29 +59,6 @@ const organizationJsonLd = {
   contactPoint: [{ "@type": "ContactPoint", contactType: "sales", email: "hello@thepanelagency.com", availableLanguage: ["en"] }],
 };
 
-// Raw HTML form declarations for Netlify's build-time scraper.
-// Injected via dangerouslySetInnerHTML so React doesn't have to render them.
-const netlifyFormsHtml = `
-<div hidden aria-hidden="true">
-  <form name="newsletter" data-netlify="true" data-netlify-honeypot="bot-field">
-    <input type="text" name="bot-field" />
-    <input type="email" name="email" />
-  </form>
-  <form name="lead-magnet" data-netlify="true" data-netlify-honeypot="bot-field">
-    <input type="text" name="bot-field" />
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-  </form>
-  <form name="consult-request" data-netlify="true" data-netlify-honeypot="bot-field">
-    <input type="text" name="bot-field" />
-    <input type="text" name="name" />
-    <input type="email" name="email" />
-    <input type="text" name="role" />
-    <textarea name="brief"></textarea>
-  </form>
-</div>
-`;
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={GeistSans.variable + " " + GeistMono.variable}>
@@ -90,7 +67,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <div dangerouslySetInnerHTML={{ __html: netlifyFormsHtml }} />
         {children}
       </body>
     </html>
