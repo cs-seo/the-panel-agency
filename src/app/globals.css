@@ -17,17 +17,11 @@
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 
   --radius-card: 18px;
-
   --shadow-glow: 0 0 0 1px rgba(255,255,255,0.04), 0 30px 80px -20px rgba(0, 82, 255, 0.25);
 }
 
 @layer base {
-  html {
-    color-scheme: dark;
-    scroll-behavior: smooth;
-    /* Bumped base font from 16px to 17px for easier reading on dark theme */
-    font-size: 17px;
-  }
+  html { color-scheme: dark; scroll-behavior: smooth; font-size: 17px; }
   body {
     background: var(--color-obsidian);
     color: var(--color-ink);
@@ -36,10 +30,7 @@
     text-rendering: optimizeLegibility;
     line-height: 1.55;
   }
-  ::selection {
-    background: var(--color-electric);
-    color: white;
-  }
+  ::selection { background: var(--color-electric); color: white; }
   h1, h2, h3 { line-height: 1.08; }
 }
 
@@ -66,8 +57,88 @@
   }
   .text-balance { text-wrap: balance; }
   .tracking-tightest { letter-spacing: -0.04em; }
+
+  /* Animated gradient text — for hero accent words */
+  .gradient-text {
+    background: linear-gradient(90deg, #2B6BFF 0%, #C9A86A 50%, #2B6BFF 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 6s ease-in-out infinite;
+  }
+
+  /* Lift + electric ring on hover */
+  .hover-lift {
+    transition: transform .4s cubic-bezier(.2,.7,.2,1), border-color .4s ease, box-shadow .4s ease;
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    border-color: rgba(43,107,255,0.4) !important;
+    box-shadow: 0 30px 60px -20px rgba(0,82,255,0.25), 0 0 0 1px rgba(43,107,255,0.2);
+  }
 }
 
+/* ─── Aurora ──────────────────────────────────────────────────────────── */
+.aurora-blob {
+  position: absolute;
+  width: 65vw;
+  height: 65vw;
+  max-width: 900px;
+  max-height: 900px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+}
+.aurora-blob-1 {
+  top: -10%; left: -10%;
+  background: radial-gradient(closest-side, rgba(0,82,255,0.55), transparent 70%);
+  animation: aurora-drift-1 22s ease-in-out infinite;
+}
+.aurora-blob-2 {
+  top: -20%; right: -15%;
+  background: radial-gradient(closest-side, rgba(201,168,106,0.45), transparent 70%);
+  animation: aurora-drift-2 26s ease-in-out infinite;
+}
+.aurora-blob-3 {
+  bottom: -20%; left: 30%;
+  background: radial-gradient(closest-side, rgba(43,107,255,0.45), transparent 70%);
+  animation: aurora-drift-3 30s ease-in-out infinite;
+}
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(15%, 8%, 0) scale(1.1); }
+}
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(-12%, 12%, 0) scale(1.15); }
+}
+@keyframes aurora-drift-3 {
+  0%, 100% { transform: translate3d(0,0,0) scale(1); }
+  50% { transform: translate3d(8%, -15%, 0) scale(0.9); }
+}
+
+/* ─── Gradient text shift ─────────────────────────────────────────────── */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* ─── Verification dot pulse (used on KnowledgePanelMock verified state) ─ */
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.15); }
+}
+.pulse-soft { animation: pulse-soft 2.2s ease-in-out infinite; }
+
+/* ─── Marquee + reverse marquee ───────────────────────────────────────── */
+@keyframes marquee-x { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes marquee-x-reverse { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+.marquee-x { animation: marquee-x 40s linear infinite; }
+.marquee-x-reverse { animation: marquee-x-reverse 50s linear infinite; }
+
+/* ─── CTA shimmer ─────────────────────────────────────────────────────── */
 @keyframes shimmer {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }
@@ -75,4 +146,31 @@
 .cta-shimmer {
   background-size: 200% 100%;
   animation: shimmer 6s linear infinite;
+}
+
+/* ─── Arrow nudge on hover (apply with .arrow-nudge on a button/link) ─── */
+.arrow-nudge .arrow {
+  display: inline-block;
+  transition: transform .3s cubic-bezier(.2,.7,.2,1);
+}
+.arrow-nudge:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ─── Floating decorative cards ──────────────────────────────────────── */
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.float-y { animation: float-y 6s ease-in-out infinite; }
+@keyframes float-y-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.float-y-slow { animation: float-y-slow 9s ease-in-out infinite; }
+
+/* ─── Respect reduced motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob, .pulse-soft, .marquee-x, .marquee-x-reverse, .cta-shimmer,
+  .float-y, .float-y-slow, .gradient-text { animation: none !important; }
 }

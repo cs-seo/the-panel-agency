@@ -1,5 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { StatsStrip } from "@/components/StatsStrip";
 import { KnowledgePanelPreviewer } from "@/components/KnowledgePanelPreviewer";
 import { BeforeAfterSlider } from "@/components/BeforeAfterSlider";
 import { BentoFeatures } from "@/components/BentoFeatures";
@@ -30,6 +31,7 @@ export default function HomePage() {
       <Nav />
       <main className="relative">
         <Hero />
+        <StatsStrip />
         <KnowledgePanelPreviewer />
         <BeforeAfterSlider />
         <BentoFeatures />
