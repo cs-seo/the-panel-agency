@@ -3,7 +3,7 @@ import { LogoMark } from "@/components/Logo";
 export function Footer() {
   return (
     <footer className="border-t border-line/60 mt-20">
-      <div className="mx-auto max-w-7xl px-6 py-16 grid gap-10 md:grid-cols-5">
+      <div className="mx-auto max-w-7xl px-6 py-16 grid gap-10 md:grid-cols-6">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2 text-ink">
             <LogoMark size={28} />
@@ -29,13 +29,26 @@ export function Footer() {
           ]}
         />
         <FooterCol
-          title="Free Tools"
+          title="Tools"
           items={[
             ["All tools", "/tools"],
             ["Brand SERP Audit", "/tools/serp-audit"],
             ["Entity Check", "/tools/entity-check"],
             ["Risk Score", "/tools/verification-risk-score"],
             ["Schema Generator", "/tools/schema-generator"],
+          ]}
+        />
+        <FooterCol
+          title="Glossary"
+          items={[
+            ["All entries", "/glossary"],
+            ["Knowledge Panel", "/glossary/knowledge-panel"],
+            ["Knowledge Graph", "/glossary/knowledge-graph"],
+            ["Featured Snippet", "/glossary/featured-snippet"],
+            ["People Also Ask", "/glossary/people-also-ask"],
+            ["AI Overview", "/glossary/ai-overview"],
+            ["Site Links", "/glossary/site-links"],
+            ["KGMID", "/glossary/kgmid"],
           ]}
         />
         <FooterCol

@@ -16,6 +16,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE_URL + "/tools/verification-risk-score", lastModified, changeFrequency: "weekly", priority: 0.9 },
     { url: SITE_URL + "/tools/schema-generator", lastModified, changeFrequency: "weekly", priority: 0.85 },
 
+    { url: SITE_URL + "/glossary", lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: SITE_URL + "/glossary/knowledge-panel", lastModified, changeFrequency: "monthly", priority: 0.85 },
+    { url: SITE_URL + "/glossary/knowledge-graph", lastModified, changeFrequency: "monthly", priority: 0.85 },
+    { url: SITE_URL + "/glossary/featured-snippet", lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: SITE_URL + "/glossary/people-also-ask", lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: SITE_URL + "/glossary/ai-overview", lastModified, changeFrequency: "monthly", priority: 0.85 },
+    { url: SITE_URL + "/glossary/site-links", lastModified, changeFrequency: "monthly", priority: 0.75 },
+    { url: SITE_URL + "/glossary/kgmid", lastModified, changeFrequency: "monthly", priority: 0.8 },
+
     { url: SITE_URL + "/solutions/knowledge-panel-for-founders", lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: SITE_URL + "/solutions/knowledge-panel-for-authors", lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: SITE_URL + "/solutions/knowledge-panel-for-brands", lastModified, changeFrequency: "monthly", priority: 0.9 },
