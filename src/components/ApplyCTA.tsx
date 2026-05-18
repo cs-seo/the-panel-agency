@@ -14,7 +14,10 @@ export function ApplyCTA() {
   const [existing, setExisting] = useState<Existing | null>(null);
   const [goal, setGoal] = useState<Goal | null>(null);
   const [email, setEmail] = useState("");
+  const [hp, setHp] = useState(""); // honeypot
+  const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   function next() {
     setStep((s) => Math.min(4, s + 1));
@@ -22,8 +25,26 @@ export function ApplyCTA() {
   function prev() {
     setStep((s) => Math.max(1, s - 1));
   }
-  function submit() {
-    setSubmitted(true);
+  async function submit() {
+    if (!role || !existing || !goal || !email) return;
+    setSubmitting(true);
+    setError(null);
+    try {
+      const res = await fetch("/api/apply", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ role, existing, goal, email, hp }),
+      });
+      if (!res.ok) {
+        const j = await res.json().catch(() => ({}));
+        throw new Error(j.error || "Submission failed (" + res.status + ")");
+      }
+      setSubmitted(true);
+    } catch (e) {
+      setError(e instanceof Error ? e.message : "Submission failed");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -111,7 +132,7 @@ export function ApplyCTA() {
               </StepWrap>
             ) : (
               <StepWrap key="4" title="Where should we send your NDA?">
-                <div className="space-y-2">
+                <div className="space-y-2 relative">
                   <label className="block">
                     <span className="text-xs text-ink-muted">Work email</span>
                     <input
@@ -123,11 +144,35 @@ export function ApplyCTA() {
                       className="mt-1.5 w-full glass rounded-xl px-4 py-3 outline-none text-[15px] placeholder:text-ink-dim focus:border-electric-glow/60"
                     />
                   </label>
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={hp}
+                    onChange={(e) => setHp(e.target.value)}
+                    aria-hidden="true"
+                    className="absolute -left-[10000px] w-px h-px opacity-0"
+                    name="website"
+                  />
                   <p className="text-[12px] text-ink-dim">
                     We never share or sell your information. Submissions are encrypted in transit.
                   </p>
+                  {error ? (
+                    <p className="text-[13px] text-red-400 mt-3">
+                      {error}. Please try again or email{" "}
+                      <a href="mailto:hello@thepanelagency.com" className="underline">
+                        hello@thepanelagency.com
+                      </a>
+                      .
+                    </p>
+                  ) : null}
                 </div>
-                <Actions onPrev={prev} onSubmit={submit} canNext={isEmail(email)} submitLabel="Send NDA" />
+                <Actions
+                  onPrev={prev}
+                  onSubmit={submit}
+                  canNext={isEmail(email) && !submitting}
+                  submitLabel={submitting ? "Sending..." : "Send NDA"}
+                />
               </StepWrap>
             )}
           </AnimatePresence>
@@ -147,9 +192,10 @@ function Progress({ step, total }: { step: number; total: number }) {
       {Array.from({ length: total }).map((_, i) => (
         <div
           key={i}
-          className={`h-1 flex-1 rounded-full ${
-            i < step ? "bg-electric" : "bg-line"
-          } transition-colors`}
+          className={
+            "h-1 flex-1 rounded-full transition-colors " +
+            (i < step ? "bg-electric" : "bg-line")
+          }
         />
       ))}
       <span className="text-xs text-ink-dim ml-1 tabular-nums">
@@ -191,11 +237,12 @@ function Choices({
             key={o.id}
             type="button"
             onClick={() => setValue(o.id)}
-            className={`text-left rounded-xl px-4 py-3.5 border transition-colors text-[14px] ${
-              active
+            className={
+              "text-left rounded-xl px-4 py-3.5 border transition-colors text-[14px] " +
+              (active
                 ? "bg-electric/10 border-electric/50 text-ink"
-                : "glass border-white/[0.06] text-ink-muted hover:text-ink"
-            }`}
+                : "glass border-white/[0.06] text-ink-muted hover:text-ink")
+            }
           >
             {o.label}
           </button>
@@ -223,9 +270,10 @@ function Actions({
       <button
         type="button"
         onClick={onPrev}
-        className={`text-[13px] text-ink-muted hover:text-ink transition-colors ${
-          onPrev ? "" : "invisible"
-        }`}
+        className={
+          "text-[13px] text-ink-muted hover:text-ink transition-colors " +
+          (onPrev ? "" : "invisible")
+        }
       >
         ← Back
       </button>

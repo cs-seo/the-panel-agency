@@ -11,7 +11,7 @@ export function Footer() {
           </div>
           <p className="mt-4 max-w-md text-sm text-ink-muted leading-relaxed">
             White-glove Google Knowledge Panel establishment and entity management for founders,
-            executives, and public figures.
+            executives, authors, artists, and public figures.
           </p>
           <p className="mt-6 text-xs text-ink-dim">
             NDA guaranteed upon submission · Encrypted secure data rooms
@@ -21,16 +21,20 @@ export function Footer() {
         <FooterCol
           title="Solutions"
           items={[
-            ["Knowledge Panels for Founders", "/solutions/knowledge-panel-for-founders"],
-            ["Knowledge Panels for Authors", "/solutions/knowledge-panel-for-authors"],
-            ["Knowledge Panels for Brands", "/solutions/knowledge-panel-for-brands"],
+            ["Panels for Founders", "/solutions/knowledge-panel-for-founders"],
+            ["Panels for Authors", "/solutions/knowledge-panel-for-authors"],
+            ["Panels for Artists", "/solutions/knowledge-panel-for-artists"],
+            ["Panels for Brands", "/solutions/knowledge-panel-for-brands"],
             ["Verification Badges", "/solutions/verification-badge"],
           ]}
         />
         <FooterCol
-          title="Resources"
+          title="Learn"
           items={[
             ["How Knowledge Panels work", "/learn/how-knowledge-panels-work"],
+            ["Claim & log into yours", "/learn/how-to-claim-a-google-knowledge-panel"],
+            ["Semantic SEO vs Entity SEO", "/learn/semantic-seo-vs-entity-seo"],
+            ["What is a KGMID?", "/learn/what-is-a-kgmid"],
             ["Why my panel disappeared", "/learn/why-did-my-knowledge-panel-disappear"],
             ["Merge duplicate panels", "/learn/merge-duplicate-knowledge-panels"],
             ["Contact", "/contact"],
