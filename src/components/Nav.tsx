@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 import { LogoMark } from "@/components/Logo";
 
 const links = [
-  { href: "#how-it-works", label: "How it works" },
-  { href: "#solutions", label: "Solutions" },
-  { href: "#process", label: "Process" },
-  { href: "#trust", label: "Trust" },
+  { href: "/tools", label: "Tools" },
+  { href: "/learn/how-knowledge-panels-work", label: "Learn" },
+  { href: "/#solutions", label: "Solutions" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Nav() {
@@ -62,7 +62,7 @@ export function Nav() {
 
         <div className="flex items-center gap-2">
           <a
-            href="#apply"
+            href="/#apply"
             className="inline-flex items-center gap-1.5 rounded-full bg-ink text-obsidian text-[13px] font-medium px-4 py-2 hover:bg-white transition-colors"
           >
             Apply for Representation

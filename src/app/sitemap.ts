@@ -10,6 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE_URL + "/", lastModified, changeFrequency: "weekly", priority: 1.0 },
     { url: SITE_URL + "/contact", lastModified, changeFrequency: "monthly", priority: 0.8 },
 
+    { url: SITE_URL + "/tools", lastModified, changeFrequency: "weekly", priority: 0.85 },
+    { url: SITE_URL + "/tools/entity-check", lastModified, changeFrequency: "weekly", priority: 0.9 },
+    { url: SITE_URL + "/tools/schema-generator", lastModified, changeFrequency: "weekly", priority: 0.85 },
+
     { url: SITE_URL + "/solutions/knowledge-panel-for-founders", lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: SITE_URL + "/solutions/knowledge-panel-for-authors", lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: SITE_URL + "/solutions/knowledge-panel-for-brands", lastModified, changeFrequency: "monthly", priority: 0.9 },

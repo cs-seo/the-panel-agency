@@ -3,7 +3,7 @@ import { LogoMark } from "@/components/Logo";
 export function Footer() {
   return (
     <footer className="border-t border-line/60 mt-20">
-      <div className="mx-auto max-w-7xl px-6 py-16 grid gap-12 md:grid-cols-4">
+      <div className="mx-auto max-w-7xl px-6 py-16 grid gap-10 md:grid-cols-5">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2 text-ink">
             <LogoMark size={28} />
@@ -21,22 +21,30 @@ export function Footer() {
         <FooterCol
           title="Solutions"
           items={[
-            ["Panels for Founders", "/solutions/knowledge-panel-for-founders"],
-            ["Panels for Authors", "/solutions/knowledge-panel-for-authors"],
-            ["Panels for Artists", "/solutions/knowledge-panel-for-artists"],
-            ["Panels for Brands", "/solutions/knowledge-panel-for-brands"],
-            ["Verification Badges", "/solutions/verification-badge"],
+            ["For Founders", "/solutions/knowledge-panel-for-founders"],
+            ["For Authors", "/solutions/knowledge-panel-for-authors"],
+            ["For Artists", "/solutions/knowledge-panel-for-artists"],
+            ["For Brands", "/solutions/knowledge-panel-for-brands"],
+            ["Verification Badge", "/solutions/verification-badge"],
+          ]}
+        />
+        <FooterCol
+          title="Free Tools"
+          items={[
+            ["All tools", "/tools"],
+            ["Entity Check", "/tools/entity-check"],
+            ["Schema Generator", "/tools/schema-generator"],
           ]}
         />
         <FooterCol
           title="Learn"
           items={[
-            ["How Knowledge Panels work", "/learn/how-knowledge-panels-work"],
-            ["Claim & log into yours", "/learn/how-to-claim-a-google-knowledge-panel"],
-            ["Semantic SEO vs Entity SEO", "/learn/semantic-seo-vs-entity-seo"],
+            ["How panels work", "/learn/how-knowledge-panels-work"],
+            ["Claim & log in", "/learn/how-to-claim-a-google-knowledge-panel"],
+            ["Semantic vs Entity SEO", "/learn/semantic-seo-vs-entity-seo"],
             ["What is a KGMID?", "/learn/what-is-a-kgmid"],
-            ["Why my panel disappeared", "/learn/why-did-my-knowledge-panel-disappear"],
-            ["Merge duplicate panels", "/learn/merge-duplicate-knowledge-panels"],
+            ["Panel disappeared?", "/learn/why-did-my-knowledge-panel-disappear"],
+            ["Merge duplicates", "/learn/merge-duplicate-knowledge-panels"],
             ["Contact", "/contact"],
           ]}
         />
