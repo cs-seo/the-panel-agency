@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { NetlifyFormDeclarations } from "@/components/LeadCaptureForm";
 import "./globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thepanelagency.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  // 56 chars, 2 emojis, no brand in title, keyword-led
   title: "Google Knowledge Panel Setup & Entity Verification 🔍✨",
-  // 152 chars, exactly 3 emojis, CTR-led
   description:
     "🔍 Build a verified Google Knowledge Panel for your name. ✅ For founders, execs & investors. 📋 Confidential intake — apply for a free SERP audit.",
   keywords: [
@@ -68,17 +67,12 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Organization JSON-LD — sitewide.
- * Helps Google understand the agency entity, which is doubly important for
- * an agency that itself builds Knowledge Panels.
- */
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "The Panel Agency",
   url: SITE_URL,
-  logo: `${SITE_URL}/icon.svg`,
+  logo: SITE_URL + "/icon.svg",
   description:
     "White-glove Google Knowledge Panel establishment and entity management for founders, executives, and public figures.",
   sameAs: [] as string[],
@@ -94,12 +88,15 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={GeistSans.variable + " " + GeistMono.variable}>
       <body className="min-h-dvh antialiased">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
+        {/* Hidden static form declarations so Netlify's build-time scraper
+            discovers our forms. Without this, submissions 404. */}
+        <NetlifyFormDeclarations />
         {children}
       </body>
     </html>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { FAQ, type FAQItem } from "@/components/FAQ";
+import { LeadCaptureForm } from "@/components/LeadCaptureForm";
 import {
   Search,
   Code2,
@@ -28,15 +29,15 @@ export const metadata: Metadata = {
 const faqs: FAQItem[] = [
   {
     q: "Are these tools actually free, or is this a freemium funnel?",
-    a: "They're actually free — no email gate, no signup. The Brand SERP Audit is rate-limited to three audits per IP per 24 hours because it costs us per call, and the cached result is returned for free if you re-check the same query within twelve hours. Everything else is unlimited. We built them because most prospects come to us already half-confused about what their entity-graph status even is. Free diagnostics mean our first conversation starts at scope and price, not whether Google has heard of you.",
+    a: "They're actually free. The Brand SERP Audit is rate-limited to three audits per IP per 24 hours because it costs us per call, and cached for 12 hours. Everything else is unlimited. We built them because most prospects come to us already half-confused about what their entity-graph status even is. Free diagnostics mean our first conversation starts at scope and price.",
   },
   {
     q: "How accurate are the results?",
-    a: "The Entity Check hits Wikipedia and Wikidata directly, so those results are as authoritative as the source data itself. The Schema Generator outputs strict schema.org JSON-LD that passes Google's Rich Results Test. The Verification Risk Score is a weighted aggregate of five public-API signals — it's a strong predictor of Knowledge Graph status but not a Google-side guarantee. The Brand SERP Audit pulls live Google SERP data through DataForSEO from a clean US desktop user-agent.",
+    a: "The Entity Check hits Wikipedia and Wikidata directly. The Schema Generator outputs strict schema.org JSON-LD that passes Google's Rich Results Test. The Verification Risk Score is a weighted aggregate of five public-API signals. The Brand SERP Audit pulls live Google SERP data through DataForSEO from a clean US desktop user-agent.",
   },
   {
     q: "Which tool should I run first?",
-    a: "Run them in this order: 1) Entity Check (binary yes/no on Wikipedia + Wikidata, 30 seconds). 2) Verification Risk Score (deeper, weighted breakdown, 30 seconds). 3) Brand SERP Audit (the most telling — shows what Google actually surfaces for your name). 4) Schema Generator (deploy what's missing). The first three are diagnostics; the fourth is the fix.",
+    a: "Run them in this order: 1) Entity Check (binary yes/no on Wikipedia + Wikidata, 30 seconds). 2) Verification Risk Score (deeper weighted breakdown). 3) Brand SERP Audit (shows what Google actually surfaces for your name). 4) Schema Generator (deploy what's missing).",
   },
 ];
 
@@ -88,7 +89,7 @@ export default function ToolsIndex() {
               Free Knowledge Panel <span className="text-electric-glow">tools.</span>
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-ink-muted leading-relaxed max-w-3xl">
-              The diagnostic stack we use on our own client audits — open to anyone. No
+              The diagnostic stack we use on our own client audits, open to anyone. No
               signup, no email gate. Audit your live Brand SERP, score your entity
               stack, check Wikipedia and Wikidata, and generate the schema your site
               is probably missing.
@@ -126,31 +127,6 @@ export default function ToolsIndex() {
         </section>
 
         <section className="relative py-12 sm:py-16 border-t border-line/60">
-          <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-2 gap-10">
-            <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-ink-dim">— Why we publish these</p>
-              <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tightest">
-                The first audit is the one nobody pays for.
-              </h2>
-            </div>
-            <div className="space-y-5 text-[17px] leading-[1.7] text-ink/85 max-w-3xl">
-              <p>
-                We publish these tools for the same reason a credible mechanic offers
-                free diagnostics: it gets the right people in the door and weeds out
-                the wrong ones. If you run our entity check and already have a clean
-                Wikidata entry, a Wikipedia article, and a live Knowledge Panel, you
-                probably do not need us — and we will tell you that.
-              </p>
-              <p>
-                If you run the check and Google has no record of you at all, that is
-                the diagnostic that turns a guess into a plan. The tools tell you
-                what Google sees. We tell you what to do about it.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="relative py-12 sm:py-16 border-t border-line/60">
           <div className="mx-auto max-w-6xl px-6">
             <p className="text-xs uppercase tracking-[0.18em] text-ink-dim">— Recommended order</p>
             <h2 className="mt-3 text-3xl sm:text-4xl font-semibold tracking-tightest max-w-3xl">
@@ -181,9 +157,9 @@ export default function ToolsIndex() {
               Need a human read on the results?
             </h2>
             <p className="mt-4 text-ink-muted leading-relaxed">
-              Tools tell you the data. They cannot tell you, &quot;in your case, this
-              Wikidata entry actually hurts you because of a namesake conflict.&quot;
-              That is where we come in.
+              Tools tell you the data. They cannot tell you, in your case, this Wikidata
+              entry actually hurts you because of a namesake conflict. That is where we
+              come in.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
               <Link
@@ -191,7 +167,7 @@ export default function ToolsIndex() {
                 className="inline-flex items-center justify-center gap-2 rounded-full bg-electric px-6 py-3.5 text-[15px] font-medium text-white hover:bg-electric-glow transition-colors shadow-[0_10px_40px_-10px_rgba(0,82,255,0.7)]"
               >
                 Apply for Representation
-                <span aria-hidden>→</span>
+                <span aria-hidden>{"→"}</span>
               </Link>
               <Link
                 href="/contact"
@@ -203,7 +179,26 @@ export default function ToolsIndex() {
           </div>
         </section>
 
-        <FAQ id="faq" eyebrow="FAQ" title="Tool questions." intro="The three things people ask before they hit the button." items={faqs} />
+        <FAQ
+          id="faq"
+          eyebrow="FAQ"
+          title="Tool questions."
+          intro="The three things people ask before they hit the button."
+          items={faqs}
+        />
+
+        <section className="relative py-12 sm:py-16 border-t border-line/60">
+          <div className="mx-auto max-w-4xl px-6">
+            <LeadCaptureForm
+              name="lead-magnet"
+              eyebrow="— Free download"
+              title="The Knowledge Panel checklist (PDF)"
+              blurb="The exact 30-signal pre-flight checklist we run on every new client engagement. Drop your email and we send it instantly."
+              buttonLabel="Send me the checklist"
+              successMessage="Sent. Check your inbox in the next minute (and your spam if not)."
+            />
+          </div>
+        </section>
       </main>
       <Footer />
     </>
