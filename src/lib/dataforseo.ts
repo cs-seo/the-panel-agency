@@ -153,3 +153,109 @@ export async function getRelatedKeywords(
       competition: k.keyword_info?.competition ?? null,
     }));
 }
+
+// ─── SERP fetcher (Google Organic Live Advanced) ──────────────────────────
+
+export type SerpOrganicItem = {
+  position: number | null;
+  title: string | null;
+  url: string | null;
+  domain: string | null;
+  snippet: string | null;
+};
+
+export type SerpKnowledgePanel = {
+  exists: boolean;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  kgmid?: string;
+  url?: string;
+};
+
+export type SerpAudit = {
+  query: string;
+  organic: SerpOrganicItem[];
+  knowledge_panel: SerpKnowledgePanel;
+  people_also_ask: string[];
+  total_results: number | null;
+};
+
+export async function getOrganicSerp(
+  keyword: string,
+  options: { locationName?: string; languageName?: string } = {}
+): Promise<SerpAudit> {
+  const post = [
+    {
+      keyword,
+      location_name: options.locationName ?? "United States",
+      language_name: options.languageName ?? "English",
+      device: "desktop",
+      depth: 10,
+    },
+  ];
+  type DFSItem = {
+    type?: string;
+    rank_absolute?: number;
+    title?: string;
+    url?: string;
+    domain?: string;
+    description?: string;
+    items?: Array<{ title?: string }>;
+    kgmid?: string;
+    subtitle?: string;
+  };
+  type DFSResp = {
+    tasks?: Array<{
+      result?: Array<{
+        keyword?: string;
+        items_count?: number;
+        items?: DFSItem[];
+      }>;
+    }>;
+  };
+
+  const json = await dfsPost<DFSResp>(
+    "/serp/google/organic/live/advanced",
+    post
+  );
+  const result = json.tasks?.[0]?.result?.[0];
+  const items: DFSItem[] = result?.items ?? [];
+
+  const organic: SerpOrganicItem[] = [];
+  let kp: SerpKnowledgePanel = { exists: false };
+  const paa: string[] = [];
+
+  for (const it of items) {
+    if (it.type === "organic" && organic.length < 10) {
+      organic.push({
+        position: it.rank_absolute ?? null,
+        title: it.title ?? null,
+        url: it.url ?? null,
+        domain: it.domain ?? null,
+        snippet: it.description ?? null,
+      });
+    } else if (it.type === "knowledge_graph") {
+      kp = {
+        exists: true,
+        title: it.title,
+        subtitle: it.subtitle,
+        description: it.description,
+        kgmid: it.kgmid,
+        url: it.url,
+      };
+    } else if (it.type === "people_also_ask") {
+      for (const q of it.items ?? []) {
+        if (q.title) paa.push(q.title);
+      }
+    }
+  }
+
+  return {
+    query: result?.keyword ?? keyword,
+    organic,
+    knowledge_panel: kp,
+    people_also_ask: paa.slice(0, 8),
+    total_results: result?.items_count ?? null,
+  };
+}

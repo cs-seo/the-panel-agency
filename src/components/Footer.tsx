@@ -32,7 +32,9 @@ export function Footer() {
           title="Free Tools"
           items={[
             ["All tools", "/tools"],
+            ["Brand SERP Audit", "/tools/serp-audit"],
             ["Entity Check", "/tools/entity-check"],
+            ["Risk Score", "/tools/verification-risk-score"],
             ["Schema Generator", "/tools/schema-generator"],
           ]}
         />
