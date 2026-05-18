@@ -139,7 +139,7 @@ export default function HowKnowledgePanelsWorkPage() {
         />
 
         {/* ── Hero ───────────────────────────────────────────────────── */}
-        <header className="relative pt-36 sm:pt-44 pb-12 sm:pb-16 overflow-hidden">
+        <header className="relative pt-28 sm:pt-32 pb-10 sm:pb-14 overflow-hidden">
           <div aria-hidden className="absolute inset-0 grid-bg radial-fade opacity-50" />
           <div className="relative mx-auto max-w-6xl px-6">
             <nav aria-label="Breadcrumb" className="mb-6 text-xs text-ink-dim">
@@ -279,7 +279,7 @@ export default function HowKnowledgePanelsWorkPage() {
         </section>
 
         {/* ── 2. Where the data comes from ─────────────────────────── */}
-        <section className="relative py-16 sm:py-20 border-t border-line/60">
+        <section className="relative py-12 sm:py-16 border-t border-line/60">
           <div className="mx-auto max-w-6xl px-6">
             <Eyebrow>02 — Inputs</Eyebrow>
             <SectionHeading id="sources">Where the data comes from.</SectionHeading>
@@ -322,7 +322,7 @@ export default function HowKnowledgePanelsWorkPage() {
         </section>
 
         {/* ── 3. What triggers a panel ─────────────────────────────── */}
-        <section className="relative py-16 sm:py-20 border-t border-line/60">
+        <section className="relative py-12 sm:py-16 border-t border-line/60">
           <div className="mx-auto max-w-6xl px-6">
             <Eyebrow>03 — Triggers</Eyebrow>
             <SectionHeading id="triggers">What triggers a panel to appear.</SectionHeading>
@@ -391,7 +391,7 @@ export default function HowKnowledgePanelsWorkPage() {
         </section>
 
         {/* ── 4. Schema deep-dive ──────────────────────────────────── */}
-        <section className="relative py-16 sm:py-20 border-t border-line/60">
+        <section className="relative py-12 sm:py-16 border-t border-line/60">
           <div className="mx-auto max-w-6xl px-6">
             <Eyebrow>04 — Technical</Eyebrow>
             <SectionHeading id="schema">
@@ -445,7 +445,7 @@ export default function HowKnowledgePanelsWorkPage() {
         </section>
 
         {/* ── 5. AI era ────────────────────────────────────────────── */}
-        <section className="relative py-16 sm:py-20 border-t border-line/60">
+        <section className="relative py-12 sm:py-16 border-t border-line/60">
           <div className="mx-auto max-w-6xl px-6 grid lg:grid-cols-12 gap-10">
             <div className="lg:col-span-7">
               <Eyebrow>05 — The new layer</Eyebrow>
@@ -497,7 +497,7 @@ export default function HowKnowledgePanelsWorkPage() {
         </section>
 
         {/* ── 6. Why panels don't appear ───────────────────────────── */}
-        <section className="relative py-16 sm:py-20 border-t border-line/60">
+        <section className="relative py-12 sm:py-16 border-t border-line/60">
           <div className="mx-auto max-w-6xl px-6">
             <Eyebrow>06 — Troubleshooting</Eyebrow>
             <SectionHeading id="why-not">
@@ -553,7 +553,7 @@ export default function HowKnowledgePanelsWorkPage() {
         </section>
 
         {/* ── 7. Timeline ──────────────────────────────────────────── */}
-        <section className="relative py-16 sm:py-20 border-t border-line/60">
+        <section className="relative py-12 sm:py-16 border-t border-line/60">
           <div className="mx-auto max-w-6xl px-6">
             <Eyebrow>07 — Timeline</Eyebrow>
             <SectionHeading id="timeline">How long it takes, realistically.</SectionHeading>
@@ -608,7 +608,7 @@ export default function HowKnowledgePanelsWorkPage() {
         </section>
 
         {/* ── CTA block ────────────────────────────────────────────── */}
-        <section className="relative py-20 border-t border-line/60">
+        <section className="relative py-14 sm:py-16 border-t border-line/60">
           <div className="mx-auto max-w-4xl px-6 text-center">
             <h2 className="text-3xl sm:text-5xl font-semibold tracking-tightest text-balance">
               Want this done <span className="text-electric-glow">for you?</span>

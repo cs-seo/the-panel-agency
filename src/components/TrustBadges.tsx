@@ -25,7 +25,7 @@ const items = [
 
 export function TrustBadges() {
   return (
-    <section id="trust" className="py-24 sm:py-32">
+    <section id="trust" className="py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.18em] text-ink-dim">Confidentiality</p>

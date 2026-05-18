@@ -27,7 +27,7 @@ export function ApplyCTA() {
   }
 
   return (
-    <section id="apply" className="py-24 sm:py-32 relative">
+    <section id="apply" className="py-14 sm:py-20 relative">
       <div className="mx-auto max-w-3xl px-6">
         <div
           aria-hidden

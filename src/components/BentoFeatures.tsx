@@ -5,7 +5,7 @@ import { Database, ShieldCheck, Network, Sparkles, FileText, Wand2 } from "lucid
 
 export function BentoFeatures() {
   return (
-    <section id="solutions" className="py-24 sm:py-32 relative">
+    <section id="solutions" className="py-14 sm:py-20 relative">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <p className="text-xs uppercase tracking-[0.18em] text-ink-dim">Capabilities</p>

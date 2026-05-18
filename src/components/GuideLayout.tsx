@@ -85,7 +85,7 @@ export function GuideLayout({
         />
 
         {/* Hero */}
-        <header className="relative pt-36 sm:pt-44 pb-12 sm:pb-16 overflow-hidden">
+        <header className="relative pt-28 sm:pt-32 pb-10 sm:pb-14 overflow-hidden">
           <div
             aria-hidden
             className="absolute inset-0 grid-bg radial-fade opacity-50"
@@ -121,7 +121,7 @@ export function GuideLayout({
         {children}
 
         {/* CTA */}
-        <section className="relative py-20 border-t border-line/60">
+        <section className="relative py-14 sm:py-16 border-t border-line/60">
           <div className="mx-auto max-w-4xl px-6 text-center">
             <h2 className="text-3xl sm:text-5xl font-semibold tracking-tightest text-balance">
               Want this done <span className="text-electric-glow">for you?</span>
@@ -170,7 +170,7 @@ export function GuideSection({
   return (
     <section
       id={id}
-      className="relative py-14 sm:py-20 border-t border-line/60 scroll-mt-28"
+      className="relative py-12 sm:py-16 border-t border-line/60 scroll-mt-28"
     >
       <div className="mx-auto max-w-6xl px-6">
         <p className="text-xs uppercase tracking-[0.18em] text-ink-dim">

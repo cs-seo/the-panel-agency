@@ -114,7 +114,7 @@ export default function ContactPage() {
         />
 
         {/* ── Hero ─────────────────────────────────────────────────── */}
-        <header className="relative pt-36 sm:pt-44 pb-12 sm:pb-16 overflow-hidden">
+        <header className="relative pt-28 sm:pt-32 pb-10 sm:pb-14 overflow-hidden">
           <div aria-hidden className="absolute inset-0 grid-bg radial-fade opacity-50" />
           <div
             aria-hidden

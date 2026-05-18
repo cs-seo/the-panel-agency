@@ -7,8 +7,8 @@
   --color-charcoal-2: #1C1C24;
   --color-line: #23232E;
   --color-ink: #F5F5F7;
-  --color-ink-muted: #9A9AA8;
-  --color-ink-dim: #5C5C68;
+  --color-ink-muted: #B6B6C4;
+  --color-ink-dim: #7A7A88;
   --color-electric: #0052FF;
   --color-electric-glow: #2B6BFF;
   --color-gold: #C9A86A;
@@ -25,6 +25,8 @@
   html {
     color-scheme: dark;
     scroll-behavior: smooth;
+    /* Bumped base font from 16px to 17px for easier reading on dark theme */
+    font-size: 17px;
   }
   body {
     background: var(--color-obsidian);
@@ -32,11 +34,13 @@
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    line-height: 1.55;
   }
   ::selection {
     background: var(--color-electric);
     color: white;
   }
+  h1, h2, h3 { line-height: 1.08; }
 }
 
 @layer utilities {
@@ -64,7 +68,6 @@
   .tracking-tightest { letter-spacing: -0.04em; }
 }
 
-/* Animated gradient ring used on premium CTAs */
 @keyframes shimmer {
   0% { background-position: 0% 50%; }
   100% { background-position: 200% 50%; }

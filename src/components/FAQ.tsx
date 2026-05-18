@@ -44,7 +44,7 @@ export function FAQ({
   };
 
   return (
-    <section id={id} className="py-24 sm:py-32 relative">
+    <section id={id} className="py-14 sm:py-20 relative">
       <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-12 gap-10">
         <div className="lg:col-span-4">
           <p className="text-xs uppercase tracking-[0.18em] text-ink-dim">{eyebrow}</p>

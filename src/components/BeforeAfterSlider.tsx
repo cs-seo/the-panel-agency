@@ -17,7 +17,7 @@ export function BeforeAfterSlider() {
   }, []);
 
   return (
-    <section id="how-it-works" className="py-24 sm:py-32 relative">
+    <section id="how-it-works" className="py-14 sm:py-20 relative">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl mx-auto text-center">
           <p className="text-xs uppercase tracking-[0.18em] text-ink-dim">Step 02 — Compare</p>

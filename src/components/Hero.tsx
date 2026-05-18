@@ -6,7 +6,7 @@ import { ShieldCheck, Sparkles } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative pt-36 sm:pt-44 pb-16 sm:pb-20 overflow-hidden">
+    <section className="relative pt-28 sm:pt-32 pb-12 sm:pb-16 overflow-hidden">
       {/* AI-generated background — entity-graph constellation, masked to the lower half */}
       <div
         aria-hidden
@@ -56,7 +56,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.05, duration: 0.7, ease: [0.2, 0.8, 0.2, 1] }}
-          className="mt-7 mx-auto max-w-4xl text-center font-semibold tracking-tightest text-balance text-[44px] leading-[1.02] sm:text-6xl md:text-7xl"
+          className="mt-7 mx-auto max-w-4xl text-center font-semibold tracking-tightest text-balance text-5xl leading-[1.04] sm:text-7xl md:text-[80px]"
         >
           Own the way Google sees you.
         </motion.h1>

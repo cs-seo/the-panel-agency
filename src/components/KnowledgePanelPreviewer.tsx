@@ -22,7 +22,7 @@ export function KnowledgePanelPreviewer() {
   const initials = useMemo(() => getInitials(name || "Your Name"), [name]);
 
   return (
-    <section id="previewer" className="relative py-24 sm:py-32">
+    <section id="previewer" className="relative py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Left: copy + form */}
