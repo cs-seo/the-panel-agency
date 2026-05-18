@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GuideLayout, GuideSection } from "@/components/GuideLayout";
 import { FAQ, type FAQItem } from "@/components/FAQ";
 
+import { KnowledgePanelMock } from "@/components/SerpMocks";
 // 64 chars · 1 emoji · no brand
 export const metadata: Metadata = {
   title: "Google Knowledge Panel for Artists & Musicians 🎨 Setup Guide",
@@ -40,7 +41,25 @@ export default function Page() {
       pageTitle="Knowledge Panel for Artists"
       pageHref="/solutions/knowledge-panel-for-artists"
       eyebrow="Solution · For artists & creators"
-      heading={<>Google Knowledge Panels for <span className="text-electric-glow">artists.</span></>}
+      heading={<>
+      <section className="relative py-12 sm:py-16 border-t border-line/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-dim mb-6">— What an artist panel looks like</p>
+          <div className="flex justify-center">
+            <KnowledgePanelMock
+              name="Theo Bayard"
+              subtitle="Musician and producer"
+              bio="Theo Bayard is a London-based electronic musician and producer. His debut album was nominated for the Mercury Prize. He has worked with FKA twigs, James Blake, and Caroline Polachek."
+              born="Born: Jul 22, 1990 · Bristol, UK"
+              education="Goldsmiths, University of London"
+              awards="Mercury Prize nominee (2023)"
+              books={["Atrium (LP)", "Slow Static (EP)", "Roomwork (LP)"]}
+              peers={[{ name: "James Blake" }, { name: "FKA twigs" }, { name: "Jamie xx" }, { name: "Caroline Polachek" }]}
+            />
+          </div>
+        </div>
+      </section>
+Google Knowledge Panels for <span className="text-electric-glow">artists.</span></>}
       lede="Musicians, producers, painters, designers, and creators all live or die on the search result page. A verified Knowledge Panel turns your scattered catalogue, press coverage, and platform profiles into one canonical artist entity — surfaced inside Google, recited correctly by AI engines."
       image="/artists-graph.webp"
       faq={

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GuideLayout, GuideSection } from "@/components/GuideLayout";
 import { FAQ, type FAQItem } from "@/components/FAQ";
 
+import { KnowledgePanelMock } from "@/components/SerpMocks";
 // 60 chars · 1 emoji · no brand
 export const metadata: Metadata = {
   title: "Google Knowledge Panel for Authors & Speakers 📚 Verified Bio",
@@ -37,6 +38,24 @@ export default function Page() {
       eyebrow="Solution · For authors & speakers"
       heading={
         <>
+      <section className="relative py-12 sm:py-16 border-t border-line/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-dim mb-6">— What an author panel looks like</p>
+          <div className="flex justify-center">
+            <KnowledgePanelMock
+              name="Maya Okafor"
+              subtitle="Author and journalist"
+              bio="Maya Okafor is a British-Nigerian author and journalist. Her work has appeared in The Guardian, The Atlantic, and The New York Times. She is the author of three books on technology, identity, and labour."
+              born="Born: Feb 3, 1981 · Manchester, UK"
+              education="Oxford University"
+              awards="Orwell Prize shortlist (2024)"
+              books={["The Quiet Engine", "After the Algorithm", "Networked"]}
+              peers={[{ name: "Yuval Harari" }, { name: "Naomi Klein" }, { name: "Caroline Criado Perez" }, { name: "Jia Tolentino" }]}
+            />
+          </div>
+        </div>
+      </section>
+
           Google Knowledge Panels for <span className="text-electric-glow">authors.</span>
         </>
       }

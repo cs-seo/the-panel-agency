@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GuideLayout, GuideSection } from "@/components/GuideLayout";
 import { FAQ, type FAQItem } from "@/components/FAQ";
 
+import { KnowledgePanelMock } from "@/components/SerpMocks";
 // 60 chars · 1 emoji · no brand
 export const metadata: Metadata = {
   title: "Google Knowledge Panel for Brands & Companies 🏢 Verified",
@@ -37,6 +38,24 @@ export default function Page() {
       eyebrow="Solution · For brands & companies"
       heading={
         <>
+      <section className="relative py-12 sm:py-16 border-t border-line/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-dim mb-6">— What a brand panel looks like</p>
+          <div className="flex justify-center">
+            <KnowledgePanelMock
+              name="Verse"
+              subtitle="Software company"
+              bio="Verse is a London-based B2B software company that builds entity-graph infrastructure for the financial services industry. Founded in 2019, the company has raised over $80 million in venture capital."
+              born="Founded: March 1, 2019 · London, UK"
+              education="Headquarters: London, UK"
+              awards="The Times Tech 100 (2025)"
+              books={[]}
+              peers={[{ name: "Stripe" }, { name: "Plaid" }, { name: "Brex" }, { name: "Mercury" }]}
+            />
+          </div>
+        </div>
+      </section>
+
           Google Knowledge Panels for <span className="text-electric-glow">brands.</span>
         </>
       }

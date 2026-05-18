@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GuideLayout, GuideSection } from "@/components/GuideLayout";
 import { FAQ, type FAQItem } from "@/components/FAQ";
 
+import { KnowledgePanelMock } from "@/components/SerpMocks";
 // 63 chars · 1 emoji · no brand
 export const metadata: Metadata = {
   title: "Merge Duplicate Google Knowledge Panels — Step-by-Step Fix 🔀",
@@ -33,7 +34,29 @@ export default function Page() {
       pageTitle="Merge Duplicate Knowledge Panels"
       pageHref="/learn/merge-duplicate-knowledge-panels"
       eyebrow="Reference · 6 min read"
-      heading={<>How to merge duplicate Knowledge Panels.</>}
+      heading={<>
+      <section className="relative py-12 sm:py-16 border-t border-line/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-dim mb-6">— Two panels, one entity — what duplicates look like</p>
+          <div className="grid md:grid-cols-2 gap-6 justify-items-center">
+            <KnowledgePanelMock
+              name="Jane Doe"
+              subtitle="Author and journalist"
+              bio="Jane Doe is a writer based in New York. Her work has appeared in The New Yorker and Wired."
+              books={["A Book About Things"]}
+              peers={[{ name: "Peer One" }, { name: "Peer Two" }, { name: "Peer Three" }, { name: "Peer Four" }]}
+            />
+            <KnowledgePanelMock
+              name="Jane Doe"
+              subtitle="Founder, Verse"
+              bio="Jane Doe is the founder of Verse, a Series-B software company based in London."
+              books={[]}
+              peers={[{ name: "Different" }, { name: "Set of" }, { name: "Peers" }, { name: "Entirely" }]}
+            />
+          </div>
+        </div>
+      </section>
+How to merge duplicate Knowledge Panels.</>}
       lede="When Google splits your identity across two Knowledge Panels, it splits your authority too. Here is how duplicates form, why they matter, and the order in which to merge them so they actually stay merged."
       faq={
         <FAQ

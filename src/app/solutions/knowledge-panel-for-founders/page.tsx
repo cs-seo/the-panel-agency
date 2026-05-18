@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GuideLayout, GuideSection } from "@/components/GuideLayout";
 import { FAQ, type FAQItem } from "@/components/FAQ";
 
+import { KnowledgePanelMock } from "@/components/SerpMocks";
 // 67 chars · 1 emoji · no brand
 export const metadata: Metadata = {
   title: "Google Knowledge Panel for Founders & CEOs 🚀 Entity SEO Setup",
@@ -37,6 +38,24 @@ export default function Page() {
       eyebrow="Solution · For founders & CEOs"
       heading={
         <>
+      <section className="relative py-12 sm:py-16 border-t border-line/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-dim mb-6">— What a founder panel looks like</p>
+          <div className="flex justify-center">
+            <KnowledgePanelMock
+              name="Alexandra Chen"
+              subtitle="Founder & CEO, Verse"
+              bio="Alexandra Chen is the founder and CEO of Verse, a Series-B B2B software company based in London. A graduate of Imperial College, she has been profiled in The Financial Times, Wired, and Bloomberg."
+              born="Born: Aug 14, 1986 · London, UK"
+              education="Imperial College London"
+              awards="Forbes 30 Under 30 (Europe)"
+              books={[]}
+              peers={[{ name: "Patrick Collison" }, { name: "Daniel Ek" }, { name: "Whitney Wolfe Herd" }, { name: "Brian Chesky" }]}
+            />
+          </div>
+        </div>
+      </section>
+
           Google Knowledge Panels for <span className="text-electric-glow">founders.</span>
         </>
       }

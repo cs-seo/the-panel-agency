@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GuideLayout, GuideSection } from "@/components/GuideLayout";
 import { FAQ, type FAQItem } from "@/components/FAQ";
 
+import { KnowledgePanelMock } from "@/components/SerpMocks";
 // 58 chars · 2 emojis · no brand · CTR-led
 export const metadata: Metadata = {
   title: "Why Did My Google Knowledge Panel Disappear? 🚨 Fix It Fast",
@@ -35,7 +36,17 @@ export default function Page() {
       pageTitle="Why Did My Knowledge Panel Disappear?"
       pageHref="/learn/why-did-my-knowledge-panel-disappear"
       eyebrow="Troubleshooting · 7 min read"
-      heading={<>Why did my Knowledge Panel disappear?</>}
+      heading={<>
+      <section className="relative py-12 sm:py-16 border-t border-line/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-dim mb-6">— The panel you used to have</p>
+          <div className="flex justify-center opacity-60">
+            <KnowledgePanelMock />
+          </div>
+          <p className="mt-4 text-center text-[13px] text-ink-dim italic">Now greyed out. The recovery work below is what brings it back.</p>
+        </div>
+      </section>
+Why did my Knowledge Panel disappear?</>}
       lede="If your Google Knowledge Panel vanished, it almost always traces back to one of seven structural issues in your entity stack. Here is the full diagnostic, ranked from most to least common, with the fix for each."
       faq={
         <FAQ

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GuideLayout, GuideSection } from "@/components/GuideLayout";
 import { FAQ, type FAQItem } from "@/components/FAQ";
 
+import { KnowledgePanelMock } from "@/components/SerpMocks";
 // 67 chars · 1 emoji · no brand · captures both "claim" and "login" intent
 export const metadata: Metadata = {
   title: "How to Claim & Log Into Your Google Knowledge Panel 🔐 Full Guide",
@@ -47,7 +48,16 @@ export default function Page() {
       pageTitle="Claim & Log Into Your Knowledge Panel"
       pageHref="/learn/how-to-claim-a-google-knowledge-panel"
       eyebrow="Guide · 9 min read"
-      heading={<>How to claim &amp; log into your Knowledge Panel.</>}
+      heading={<>
+      <section className="relative py-12 sm:py-16 border-t border-line/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-dim mb-6">— Once claimed, this is what you manage</p>
+          <div className="flex justify-center">
+            <KnowledgePanelMock verified={true} />
+          </div>
+        </div>
+      </section>
+How to claim &amp; log into your Knowledge Panel.</>}
       lede="Most searches for 'Knowledge Panel login' come from people trying to manage a panel they already have — but Google deliberately makes the entry point obscure. Here is the full claim and management flow, why it matters more than ever, and what to do when Google says no."
       image="/claim-panel.webp"
       faq={

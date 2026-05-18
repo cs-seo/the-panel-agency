@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GuideLayout, GuideSection } from "@/components/GuideLayout";
 import { FAQ, type FAQItem } from "@/components/FAQ";
 
+import { KnowledgePanelMock } from "@/components/SerpMocks";
 // 56 chars · 1 emoji · no brand
 export const metadata: Metadata = {
   title: "Google Knowledge Panel Verification Badge ✅ How to Earn It",
@@ -35,6 +36,21 @@ export default function Page() {
       eyebrow="Solution · The badge"
       heading={
         <>
+      <section className="relative py-12 sm:py-16 border-t border-line/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-dim mb-6">— A verified panel (note the check)</p>
+          <div className="flex justify-center">
+            <KnowledgePanelMock
+              name="Your Name"
+              subtitle="Founder, Author, Investor"
+              bio="The small gray check next to your name is Google's verification badge. It tells every searcher — and every AI engine grounding against your entity — that this panel is officially managed by you."
+              verified={true}
+              peers={[{ name: "Peer A" }, { name: "Peer B" }, { name: "Peer C" }, { name: "Peer D" }]}
+            />
+          </div>
+        </div>
+      </section>
+
           Earn the verification <span className="text-electric-glow">badge.</span>
         </>
       }

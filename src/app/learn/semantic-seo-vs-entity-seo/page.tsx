@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GuideLayout, GuideSection } from "@/components/GuideLayout";
 import { FAQ, type FAQItem } from "@/components/FAQ";
 
+import { AiOverviewMock, FeaturedSnippetMock } from "@/components/SerpMocks";
 // 65 chars · 1 emoji · no brand · primary keyword in title
 export const metadata: Metadata = {
   title: "Semantic SEO vs Entity SEO — Differences & How to Use Both 🧠",
@@ -40,7 +41,23 @@ export default function Page() {
       pageTitle="Semantic SEO vs Entity SEO"
       pageHref="/learn/semantic-seo-vs-entity-seo"
       eyebrow="Reference · 7 min read"
-      heading={<>Semantic SEO vs Entity SEO.</>}
+      heading={<>
+      <section className="relative py-12 sm:py-16 border-t border-line/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-dim mb-6">— Where each wins</p>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <p className="text-[12px] text-ink-dim mb-3">Entity SEO wins this surface</p>
+              <AiOverviewMock />
+            </div>
+            <div>
+              <p className="text-[12px] text-ink-dim mb-3">Semantic SEO wins this surface</p>
+              <FeaturedSnippetMock />
+            </div>
+          </div>
+        </div>
+      </section>
+Semantic SEO vs Entity SEO.</>}
       lede="The two terms get used interchangeably and they shouldn't. Here is what each actually means, where they overlap, and how a complete 2026 strategy combines both — including what changes in the AI-overview era."
       image="/semantic-network.webp"
       faq={

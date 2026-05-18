@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GuideLayout, GuideSection } from "@/components/GuideLayout";
 import { FAQ, type FAQItem } from "@/components/FAQ";
 
+import { KnowledgePanelMock } from "@/components/SerpMocks";
 // 62 chars · 1 emoji · no brand
 export const metadata: Metadata = {
   title: "What Is a KGMID? Google Knowledge Graph IDs Explained 🆔",
@@ -39,7 +40,19 @@ export default function Page() {
       pageTitle="What Is a KGMID?"
       pageHref="/learn/what-is-a-kgmid"
       eyebrow="Reference · 5 min read"
-      heading={<>What is a KGMID?</>}
+      heading={<>
+      <section className="relative py-12 sm:py-16 border-t border-line/60">
+        <div className="mx-auto max-w-6xl px-6">
+          <p className="text-xs uppercase tracking-[0.18em] text-ink-dim mb-6">— The visible side of a KGMID</p>
+          <p className="text-ink-muted max-w-3xl mb-8">
+            You never see the KGMID directly in a Knowledge Panel. But every panel is a rendering of one. The example below has the KGMID <code className="px-1.5 py-0.5 bg-white/[0.06] rounded">/g/11g4rj8mkt</code> behind it (fictional).
+          </p>
+          <div className="flex justify-center">
+            <KnowledgePanelMock />
+          </div>
+        </div>
+      </section>
+What is a KGMID?</>}
       lede="KGMID stands for Knowledge Graph Machine ID — Google's internal identifier for any entity in the Knowledge Graph. Here is what they are, where to find yours, and why this obscure-looking ID is the single most important reference point in entity SEO."
       faq={
         <FAQ id="faq" eyebrow="FAQ" title="KGMID questions." intro="The three things people ask once they discover the ID inside their Knowledge Panel URL." items={faqs} />
