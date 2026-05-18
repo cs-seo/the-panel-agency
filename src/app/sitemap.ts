@@ -33,6 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     { url: SITE_URL + "/learn/how-knowledge-panels-work", lastModified, changeFrequency: "monthly", priority: 0.9 },
     { url: SITE_URL + "/learn/how-to-claim-a-google-knowledge-panel", lastModified, changeFrequency: "monthly", priority: 0.95 },
+    { url: SITE_URL + "/learn/google-knowledge-graph-api", lastModified, changeFrequency: "monthly", priority: 0.85 },
     { url: SITE_URL + "/learn/semantic-seo-vs-entity-seo", lastModified, changeFrequency: "monthly", priority: 0.85 },
     { url: SITE_URL + "/learn/what-is-a-kgmid", lastModified, changeFrequency: "monthly", priority: 0.8 },
     { url: SITE_URL + "/learn/why-did-my-knowledge-panel-disappear", lastModified, changeFrequency: "monthly", priority: 0.8 },

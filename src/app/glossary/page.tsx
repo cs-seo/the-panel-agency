@@ -15,7 +15,7 @@ import { ArrowUpRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Google Search Features Glossary 🔍 Visual Guide & Definitions",
   description:
-    "🔍 Google search features explained — Knowledge Panel, Knowledge Graph, Featured Snippet, People Also Ask, AI Overview, Sitelinks, KGMID. ✅ With live visual mocks. 📖",
+    "🔍 Google search features explained — Knowledge Panel, Knowledge Graph, Featured Snippet, AI Overview, Sitelinks, KGMID. ✅ Live visual mocks. 📖",
   alternates: { canonical: "/glossary" },
   openGraph: {
     title: "Google Search Features Glossary 🔍 Visual Guide",

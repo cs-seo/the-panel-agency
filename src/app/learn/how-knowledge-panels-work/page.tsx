@@ -311,6 +311,7 @@ export default function HowKnowledgePanelsWorkPage() {
                 <Image
                   src="/entity-graph.webp"
                   alt="Abstract visualisation of an entity in a knowledge graph — connected blue nodes representing structured data sources."
+                  title="Knowledge Graph entity visualisation"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover opacity-95"
