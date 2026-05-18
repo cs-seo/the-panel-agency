@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { NetlifyFormDeclarations } from "@/components/NetlifyFormDeclarations";
 import "./globals.css";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://thepanelagency.com";
@@ -16,11 +17,6 @@ export const metadata: Metadata = {
     "knowledge graph entity",
     "entity SEO",
     "verified knowledge panel",
-    "knowledge panel for founders",
-    "knowledge panel for authors",
-    "google verification badge",
-    "wikidata entity",
-    "schema markup person",
   ],
   authors: [{ name: "The Panel Agency" }],
   creator: "The Panel Agency",
@@ -33,14 +29,7 @@ export const metadata: Metadata = {
     title: "Google Knowledge Panel Setup & Entity Verification 🔍✨",
     description:
       "🔍 Verified Google Knowledge Panels for founders, execs & public figures. ✅ Discreet entity engineering. 📋 Apply for a free SERP audit.",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "The Panel Agency — Google Knowledge Panel Setup & Entity Verification",
-      },
-    ],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "The Panel Agency" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -52,13 +41,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-snippet": -1,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-    },
+    googleBot: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
   },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
@@ -72,17 +55,9 @@ const organizationJsonLd = {
   name: "The Panel Agency",
   url: SITE_URL,
   logo: SITE_URL + "/icon.svg",
-  description:
-    "White-glove Google Knowledge Panel establishment and entity management for founders, executives, and public figures.",
+  description: "White-glove Google Knowledge Panel establishment and entity management.",
   sameAs: [] as string[],
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      contactType: "sales",
-      email: "hello@thepanelagency.com",
-      availableLanguage: ["en"],
-    },
-  ],
+  contactPoint: [{ "@type": "ContactPoint", contactType: "sales", email: "hello@thepanelagency.com", availableLanguage: ["en"] }],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -93,8 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        {/* Hidden static form declarations so Netlify's build-time scraper
-            discovers our forms. Without this, submissions 404. */}
+        <NetlifyFormDeclarations />
         {children}
       </body>
     </html>
